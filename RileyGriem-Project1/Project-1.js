@@ -15,18 +15,20 @@ function draw () {
 
   background(255,75,255)
     
-  blueStripes();
+  //blueStripes();
   
   yellowCircles ();
   
 }
 
 function yellowCircles () {
-  fill(255,255,0)
-  noStroke()
 
   if (mouseIsPressed) {
+  blueStripes();
+  fill(255,255,0)
+  noStroke()
   ellipse (random(100,150),random(25,75),50,50)
+
   }
 }
 
@@ -37,13 +39,13 @@ function blueStripes () {
   noFill()
   
   let i;
-  let targetSize = width+200
+  let targetSize = width*2
   //let ellipseX = mouseX
   //let ellipseY = mouseY
   
   
   for(i=0; i*circleDelta+circleSize<targetSize; i+=1){
-    ellipse(width/2,height/2,circleSize+circleDelta*i,circleSize+circleDelta*i)
+    ellipse(mouseX,mouseY,circleSize+circleDelta*i,circleSize+circleDelta*i)
   }
 
   
