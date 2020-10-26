@@ -2,38 +2,61 @@
 //Project 1
 //Energetic
 
-let circleSize = 10
-let circleDelta = 50
-let t = 0
+let circleSize = 10;
+let circleDelta = 50;
+let t = 0;
+
+let yellowCircleSize;
 
 
 function setup () {
   createCanvas(800,600)
   background(0)
+
+  yellowCircleSize = 0;
 }
 
 function draw () {
 
   background(0)
   drawTargets();
-  //blueStripes();
-  
-  //yellowCircles ();
   t++;
+
+  yellowCircle();
+
 }
 
 //middle made the vibrancy of the colors not work the way I wanted them to
 function drawTargets(){
   //let targetMiddle = new Target([0,0],300,[255,0,0]);
-  let targetLeft = new Target([-5,0],width*3,[0,255,255], 10, 9);
-  let targetRight = new Target([5,0],width*3,[255,75,255], 10, 13);
+  let targetLeft = new Target([-5,0],width*3,[0,255,255], 10, mouseX/100);
+  let targetRight = new Target([5,0],width*3,[255,75,255], 10, mouseY/100);
 
   //targetMiddle.draw();
   targetLeft.draw(t);
   targetRight.draw(t);
 
 }
-function yellowCircles () {
+
+function yellowCircle(){
+  noStroke();
+  fill(255,255,0);
+  ellipse(width/2, height/2, yellowCircleSize, yellowCircleSize);
+}
+
+function mousePressed(){
+  yellowCircleSize = yellowCircleSize + 50;
+}
+
+//was the draw function for first attempt at yellow explosion
+/*function drawExplosion(){
+  let yellowCircle = new Explosion(width/3, 10, .01);
+
+  yellowCircle.draw();
+}*/
+
+//original yellow circles
+/*function yellowCircles () {
 
   if (mouseIsPressed) {
 
@@ -42,7 +65,7 @@ function yellowCircles () {
   ellipse (random(100,150),random(25,75),50,50)
 
   }
-}
+}*/
 
 // center input as an array of integer x and y position of the center of the Target object
 // radius input as an integer representing the radius of the Target
@@ -77,6 +100,29 @@ class Target{
     }
   }
 }
+
+//tried to make yellow circle expand, only made it fixed.
+/*class Explosion{
+  constructor(diameter, motionRadius, speed){
+    this.diameter = diameter
+    this.x = null
+    this.y = null
+    this.motionRadius = motionRadius
+    this.speed = speed
+  }
+
+  draw(){
+    noStroke();
+    fill(255,255,0)
+
+    let i;
+    let targetSize = this.diameter;
+    for(i=0; i*yellowCitcleDelta+yellowCircleSize<targetSize; i+=1){
+      ellipse(width/2,height/2, yellowCircleSize+yellowCitcleDelta*i, yellowCircleSize+yellowCitcleDelta*i)
+    }
+  }
+  //yellow circles explode and wipe the screen
+}*/
 
 //made into a class instead
 /*function target(center, radius, color){
