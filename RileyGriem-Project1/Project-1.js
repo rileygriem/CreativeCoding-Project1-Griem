@@ -31,6 +31,12 @@ function draw () {
   } else if (keyCode == 51){
     border3();
   }
+
+  //creates a white background, any key will reverse this
+  if (keyCode == 32){
+    clear();
+  }
+
   }
 
 //middle made the vibrancy of the colors not work the way I wanted them to
@@ -53,10 +59,17 @@ function yellowCircle(){
   ellipse(width/2, height/2, yellowCircleSize, yellowCircleSize);
 }
 
-function mousePressed(){
+/*function mousePressed(){
   yellowCircleSize = yellowCircleSize + 50;
-}
+}*/
 
+function keyPressed(){
+  if (keyCode == UP_ARROW){
+    yellowCircleSize = yellowCircleSize + 50;
+  } else if (keyCode == DOWN_ARROW){
+    yellowCircleSize = yellowCircleSize - 50;
+  }
+}
 
 //border that appears when "1" is pressed on the keyboard
 function border1(){  
