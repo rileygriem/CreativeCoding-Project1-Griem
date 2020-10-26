@@ -8,6 +8,8 @@ let t = 0;
 
 let yellowCircleSize;
 
+let clickNumber = 0;
+
 
 function setup () {
   createCanvas(800,600)
@@ -17,25 +19,24 @@ function setup () {
 }
 
 function draw () {
-
-  background(0)
+  background(0);
+  
   drawTargets();
   t++;
 
   yellowCircle();
 
-  if (keyCode == 49){
+  if (clickNumber == 0){
+    background(0);
+    startScreen();
+  } else if (keyCode == 49){
     border1();
   } else if (keyCode == 50){
     border2();
-  } else if (keyCode == 51){
-    border3();
-  }
-
-  //creates a white background, any key will reverse this
-  if (keyCode == 32){
+  } else if (keyCode == 32){ //creates a white background, any key will reverse this
     clear();
   }
+  
 
   }
 
@@ -52,7 +53,7 @@ function drawTargets(){
 }
 
 
-//yellow circle that gets bigger when the mouse is pressed
+//yellow circle that gets bigger when the up arrow is pressed and smaller w down arrow
 function yellowCircle(){
   noStroke();
   fill(255,255,0);
@@ -103,7 +104,19 @@ function border2(){
 
 }
 
-function border3(){
+function startScreen(){
+  textSize(32);
+  fill(255);
+  let words = "Click to Start!"
+  let warning = "Warning: many flashing colors"
+
+  text(words, width/2-100, height/2-20)
+  fill(255,0,0)
+  text(warning, width/2-210, height/2+20)
+}
+
+function mousePressed(){
+  clickNumber++;
 
 }
 
