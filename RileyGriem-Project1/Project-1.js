@@ -77,18 +77,30 @@ function border1(){
   strokeWeight(2);
   fill(random(125,255),0,random(125,255))
 
-  for(let i=0; i < width; i+= 50){
+  for(let i=0; i < width; i += 50){
     for(let j=0; j < height; j += 50){
-    rect(i,0,50,50);
-    rect(i,height-50,50,50);
-    rect(0,j,50,50);
-    rect(width-50,j,50,50);
+      rect(i,0,50,50);
+      rect(i,height-50,50,50);
+      rect(0,j,50,50);
+      rect(width-50,j,50,50);
     }
   }
 }
 
 function border2(){
-  
+  stroke(255);
+  strokeWeight(2);
+  fill(0,mouseX/2,mouseY/2);
+
+  for(let i=0; i<width; i += 50){
+    for(let j=0; j<height; j += 50){
+      rect(i,0,50,50);
+      rect(i,height-50,50,50);
+      rect(0,j,50,50);
+      rect(width-50,j,50,50);
+    }
+  }
+
 }
 
 function border3(){
