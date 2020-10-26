@@ -1,6 +1,5 @@
 //Riley Griem
 //Project 1
-//Energetic
 
 let circleSize = 10;
 let circleDelta = 50;
