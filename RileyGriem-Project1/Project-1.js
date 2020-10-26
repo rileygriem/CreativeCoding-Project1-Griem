@@ -24,7 +24,14 @@ function draw () {
 
   yellowCircle();
 
-}
+  if (keyCode == 49){
+    border1();
+  } else if (keyCode == 50){
+    border2();
+  } else if (keyCode == 51){
+    border3();
+  }
+  }
 
 //middle made the vibrancy of the colors not work the way I wanted them to
 function drawTargets(){
@@ -38,6 +45,8 @@ function drawTargets(){
 
 }
 
+
+//yellow circle that gets bigger when the mouse is pressed
 function yellowCircle(){
   noStroke();
   fill(255,255,0);
@@ -47,6 +56,38 @@ function yellowCircle(){
 function mousePressed(){
   yellowCircleSize = yellowCircleSize + 50;
 }
+
+
+//border that appears when "1" is pressed on the keyboard
+function border1(){  
+  stroke(255);
+  strokeWeight(2);
+  fill(random(125,255),0,random(125,255))
+
+  for(let i=0; i < width; i+= 50){
+    rect(i,0,50,50);
+    rect(i,height-50,50,50)
+  }
+}
+
+function border2(){
+
+}
+
+function border3(){
+
+}
+
+//first try to get borders to appear when you click "1" "2" or "3"
+/*function keyPressed(){
+  if (keyCode == 49){
+    border1();
+  } else if (keyCode == 50){
+    border2();
+  } else if (keyCode == 51){
+    border3();
+  }
+}*/
 
 //was the draw function for first attempt at yellow explosion
 /*function drawExplosion(){
